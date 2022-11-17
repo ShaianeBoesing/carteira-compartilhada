@@ -1,0 +1,25 @@
+{
+  "name": "trabalho-web",
+  "version": "1.0.0",
+  "description": "Projeto da Disciplina de Desenvolvimento Web - UFSC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.2",
+    "express": "^4.18.2",
+    "mongodb": "^4.12.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShaianeBoesing/trabalho-web.git"
+  },
+  "author": "Shaiane Boesing",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShaianeBoesing/trabalho-web/issues"
+  },
+  "homepage": "https://github.com/ShaianeBoesing/trabalho-web#readme"
+}

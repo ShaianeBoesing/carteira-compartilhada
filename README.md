@@ -12,6 +12,10 @@ descrição do projeto
 - A aplicação deve ficar disponível 24/7 em algum servidor da Nuvem UFSC ou externo à UFSC (vamos ver como configurar isso ainda)
 - O front-end deve ser responsivo (desktop e mobile)
 
+### Para inicializar:
+- Instalar Node com npm
+- npm install
+- npm start
 
 ## Autores
 
