@@ -7,7 +7,7 @@ E o melhor: compartilhar essa carteira com sua família para monitorar os gastos
 
 ### Para inicializar:
 - Instalar Node com npm 
-- Node version >= 18.12.1
+- Node version >= 16.5
 - npm version >= 8.19.2
 - Executar os comandos na pasta raiz do projeto: 
 ```
