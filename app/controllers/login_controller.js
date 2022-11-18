@@ -1,5 +1,7 @@
-//var User = require('../models/user.js');
-
 exports.index = function(req, res) {
-    res.send('<h1> Página de Login </h1>');
+    res.send('Tela de login');
+};
+
+exports.auth = function(req, res) {
+    res.send('Logado com sucesso');
 };
