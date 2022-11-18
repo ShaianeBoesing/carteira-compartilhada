@@ -17,9 +17,12 @@ E o melhor: compartilhar essa carteira com sua família para monitorar os gastos
 - O front-end deve ser responsivo (desktop e mobile)
 
 ### Para inicializar:
-- Instalar Node com npm
-- npm install
-- npm start
+- Instalar Node com npm 
+- Node version >= 18.12.1
+- npm version >= 8.19.2
+- run npm install
+- run npm update
+- run npm start
 
 ## Autores
 
