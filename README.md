@@ -1,6 +1,10 @@
 Projeto da Disciplina de Desenvolvimento Web - UFSC
 ========================================
-descrição do projeto
+
+A carteira compartilhada é uma forma ágil de você monitorar todo o dinheiro que entra e sai do seu bolso! 
+Você pode categorizar da forma personalizada para melhor adaptar ao que faz sentido para seus gastos atuais.
+E o melhor: compartilhar essa carteira com sua família para monitorar os gastos compartilhados da casa! 
+
 
 ### Solicitações para desenvolvimento do Projeto:
 
