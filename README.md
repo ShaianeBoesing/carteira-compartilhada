@@ -12,7 +12,6 @@ E o melhor: compartilhar essa carteira com sua família para monitorar os gastos
 - Executar os comandos na pasta raiz do projeto: 
 ```
 npm install
-npm update
 npm start
 ```
 
