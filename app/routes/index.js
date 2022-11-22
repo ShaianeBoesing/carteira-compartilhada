@@ -13,7 +13,8 @@ routes.post('/users', users.store);
 // routes.get('/users/create', users.create);
 // routes.get('/users/:id/show', users.show);
 // routes.patch('/users/:id/update', users.update);
-// routes.delete('/users/:id/delete', users.destroy);
+//routes.delete('/users/:id/delete', users.destroy);
+routes.delete('/users/delete/all', users.destroyAll);
 
 
 module.exports = routes; 

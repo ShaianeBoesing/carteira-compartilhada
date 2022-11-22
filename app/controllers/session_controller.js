@@ -1,4 +1,5 @@
 const User = require('../models/User');
+const md5 = require('md5');
 
 exports.index = function(req, res) {
     if (typeof __current_user !== 'undefined') {
@@ -9,8 +10,9 @@ exports.index = function(req, res) {
 };
 
 exports.login = async function(req, res) {
-    const {email, password} = req.body;
-    let user = await User.find({"email": email, "password": password});
+    let email = req.body.email;
+    let password = req.body.password;
+    let user = await User.find({"email": email, "password": md5(password)});
     if (!user) {
         return res.status(404).send({ message: "User not found" });
     }
