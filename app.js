@@ -1,10 +1,13 @@
-const express = require('express')
+global.__basedir = __dirname;
+
+// conecting to server
 const app = require('./config/custom-express');
 
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000...')
 });
 
+// conecting to db
 const db = require("./config/db");
 
 db.mongoose
