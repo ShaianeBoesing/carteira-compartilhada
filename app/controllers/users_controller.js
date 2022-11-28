@@ -61,7 +61,7 @@ exports.destroy = async function(req, res) {
     const id = req.params.id;
     let user = await User.findOneAndRemove({_id: id});
     if (user) {
-        res.status(204);
+        res.status(204).json({message: 'Usuário deletado com sucesso!'});
     } else {
         res.status(404).json({message: 'Usuário não encontrado'});
     }
@@ -69,7 +69,7 @@ exports.destroy = async function(req, res) {
 
 exports.destroyAll = async function(req, res) {
     await User.deleteMany({});
-    res.status(204);
+    res.status(204).json({message: 'Usuários deletados com sucesso!'});
 };
 
 const validateUser = (req) => {

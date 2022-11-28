@@ -1,6 +1,7 @@
 const routes = require('express').Router();
 const session = require('../controllers/session_controller');
 const users = require('../controllers/users_controller');
+const wallets = require('../controllers/wallets_controller');
 
 // Login
 routes.get('/', session.index);
@@ -16,5 +17,11 @@ routes.patch('/users/:id', users.update);
 routes.delete('/users/:id', users.destroy);
 routes.delete('/users/delete/all', users.destroyAll);
 
+//Wallet
+routes.get('/wallets', wallets.index)
+routes.post('/wallets', wallets.store)
+routes.get('/wallets/create', users.create);
+routes.get('/wallets/:id', wallets.show)
+routes.delete('/wallets/:id', wallets.destroy);
 
 module.exports = routes; 
