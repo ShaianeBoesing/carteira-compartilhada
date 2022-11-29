@@ -6,7 +6,7 @@ const walletMovimentSchema = new Schema(
         category_id: {type: String},
         wallet_id: {type: String},
         value: {type: Number}
-    }, 
+    },
     { timestamps: true }
 );
 
