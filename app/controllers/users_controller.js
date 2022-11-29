@@ -13,11 +13,7 @@ exports.show = async function(req, res) {
 };
 
 exports.create = function(req, res) {
-    if (typeof __current_user !== 'undefined') {
-        res.sendFile(__basedir + '/web/views/users/form.html');
-    } else {
-        res.sendFile(__basedir + '/web/views/login/index.html');
-    }
+    res.sendFile(__basedir + '/web/views/users/form.html');
 };
 
 exports.store = async function(req, res) {
