@@ -12,16 +12,13 @@ exports.show = async function(req, res) {
 };
 
 exports.create = function(req, res) {
-    if (typeof __current_user !== 'undefined') {
-        res.sendFile(__basedir + '/web/views/categories/form.html');
-    } else {
-        res.sendFile(__basedir + '/web/views/login/index.html');
-    }
+    res.sendFile(__basedir + '/web/views/categories/form.html');
 };
 
 exports.store = async function(req, res) {
     if (validateCategory(req)) {
         const name = (req.body.name).trim().toUpperCase();
+        const type = req.body.type;
         let category = await Category.findOne({"name": name});
         if(!category) {
             const data = {"name": name, "type": type};
@@ -34,6 +31,22 @@ exports.store = async function(req, res) {
         res.status(400).json({message: 'Valores inválidos'});
     }
 };
+
+exports.update = async function(req, res){
+    if (validateCategory(req)){
+        const id = req.params.id;
+        const name = req.body.name;
+        const type = req.body.type;
+        let category = await Category.findOneAndUpdate(){"_id": id}, {name: name, type: type}, {new: true}
+        if (category){
+            res.status(201).json({message: 'Categoria atualizada com sucesso', category: category});
+        } else{
+            res.status(404).json({message: 'Categoria nao econtrada'});
+        }
+    } else{
+        res.status(400).json({message: 'Valores invalidos'});
+    }
+}
 
 exports.destroy = async function(req, res) {
     const id = req.params.id;
@@ -48,10 +61,5 @@ exports.destroy = async function(req, res) {
 const validateCategory = (req) => {
     const name = req.body.name.trim();
     const type = req.body.type.trim();
-    if (name.length > 3 && (type === 'Entrada' || type === 'Saida')){
-        return true
-    } else {
-        return false
-    }
-}
+    return (name.length > 2 && (type === 'Entrada' || type === 'Saida'))
 
