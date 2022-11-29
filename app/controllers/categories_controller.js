@@ -37,7 +37,7 @@ exports.update = async function(req, res){
         const id = req.params.id;
         const name = req.body.name;
         const type = req.body.type;
-        let category = await Category.findOneAndUpdate(){"_id": id}, {name: name, type: type}, {new: true}
+        let category = await Category.findOneAndUpdate({"_id": id}, {name: name, type: type}, {new: true})
         if (category){
             res.status(201).json({message: 'Categoria atualizada com sucesso', category: category});
         } else{
@@ -62,4 +62,4 @@ const validateCategory = (req) => {
     const name = req.body.name.trim();
     const type = req.body.type.trim();
     return (name.length > 2 && (type === 'Entrada' || type === 'Saida'))
-
+}
