@@ -33,7 +33,6 @@ exports.store = async function(req, res) {
                 const data = {"name": name};
                 let wallet = await Wallet.create(data);
                 let userWallet = await UserWallet.create({wallet: wallet, user: __current_user})
-                console.log(userWallet)
                 res.status(201).json({message: 'Carteira Criada com Sucesso', wallet: wallet});  
             } else  {
                 res.status(409).json({message: 'Não é possível criar duas carteiras com o mesmo nome'});

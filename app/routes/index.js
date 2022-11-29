@@ -21,12 +21,13 @@ routes.delete('/users/delete/all', users.destroyAll);
 //Wallet
 routes.get('/wallets', wallets.index)
 routes.post('/wallets', wallets.store)
-routes.get('/wallets/create', users.create);
+routes.get('/wallets/create', wallets.create);
 routes.get('/wallets/:id', wallets.show)
 routes.delete('/wallets/:id', wallets.destroy);
 
-//Wallet
+//Users Wallets
 routes.get('/users_wallets/users/:wallet_id', users_wallets.getUsers)
 routes.get('/users_wallets/wallets', users_wallets.getWallets)
+routes.post('/users_wallets/:wallet_id/:participant_id', users_wallets.addParticipant)
 
 module.exports = routes; 
