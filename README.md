@@ -1,4 +1,4 @@
-Projeto em Node.js - UFSC
+Um Projeto Node.js - UFSC
 ========================================
 
 A carteira compartilhada é uma forma ágil de você monitorar todo o dinheiro que entra e sai do seu bolso! 
