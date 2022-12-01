@@ -51,5 +51,6 @@ routes.delete('/categories/:id', loggedIn, categories.destroy);
 
 //Calculate 
 routes.get('/calculate/total/wallet', loggedIn, calcs.totalByWallet)
+routes.get('/calculate/total', loggedIn, calcs.total)
 
 module.exports = routes; 
