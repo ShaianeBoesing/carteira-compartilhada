@@ -5,6 +5,7 @@ const users = require('../controllers/users_controller');
 const wallets = require('../controllers/wallets_controller');
 const users_wallets = require('../controllers/user_wallets_controller');
 const categories = require('../controllers/categories_controller');
+const wallets_moviments = require('../controllers/wallets_moviments_controller');
 const calcs = require('../controllers/calcs_controller');
 
 // Login
@@ -52,5 +53,13 @@ routes.delete('/categories/:id', loggedIn, categories.destroy);
 //Calculate 
 routes.get('/calculate/total/wallet', loggedIn, calcs.totalByWallet)
 routes.get('/calculate/total', loggedIn, calcs.total)
+
+//Wallet Moviment
+routes.get('/wallets_moviments', loggedIn, wallets_moviments.index);
+routes.post('/wallets_moviments/:category_id/:wallet_id', loggedIn, wallets_moviments.store); //terei acesso ao valor no body ou no link?
+routes.get('/wallets_moviments/create', loggedIn, wallets_moviments.create);
+routes.get('/wallets_moviments/:id', loggedIn, wallets_moviments.show);
+routes.delete('/wallets_moviments/:id', loggedIn, wallets_moviments.destroy); //apenas o registro do movimento é deletado, o valor modificado na carteira permanece
+routes.delete('/wallets_moviments/delete/all', loggedIn, wallets_moviments.destroyAll);
 
 module.exports = routes; 
