@@ -7,8 +7,7 @@ exports.index = async function(req, res) {
 };
 
 exports.show = async function(req, res) {
-    let id = req.params.id;
-    let user = await User.find({_id: id});
+    let user = __current_user
     res.status(201).json({data: user});
 };
 

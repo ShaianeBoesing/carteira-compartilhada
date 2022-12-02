@@ -15,9 +15,9 @@ routes.post('/logout', session.logout);
 
 // Users
 routes.get('/users', loggedIn, users.index);
-routes.post('/users', loggedIn, users.store);
-routes.get('/users/create', loggedIn, users.create);
-routes.get('/users/:id', loggedIn, users.show);
+routes.post('/users', users.store);
+routes.get('/users/create', users.create);
+routes.get('/users/me', loggedIn, users.show);
 routes.patch('/users/:id', loggedIn, users.update);
 routes.delete('/users/:id', loggedIn, users.destroy);
 routes.delete('/users/delete/all', loggedIn, users.destroyAll);
@@ -30,9 +30,10 @@ routes.get('/wallets/:id', loggedIn, wallets.show);
 routes.delete('/wallets/:id', loggedIn, wallets.destroy);
 
 //Users Wallets
-routes.get('/users_wallets/users/:wallet_id', loggedIn, users_wallets.getUsers);
+routes.get('/users_wallets/users/w/:wallet_id', loggedIn, users_wallets.getUsers);
 routes.get('/users_wallets/wallets', loggedIn, users_wallets.getWallets);
-routes.post('/users_wallets/:wallet_id/:participant_id', loggedIn, users_wallets.addParticipant);
+routes.post('/users_wallets/w/:wallet_id/u/:participant_id', loggedIn, users_wallets.addParticipant);
+routes.delete('/users_wallets/w/:wallet_id/u/:participant_id', loggedIn, users_wallets.removeParticipant);
 
 //Category
 routes.get('/categories', loggedIn, categories.index);
@@ -56,7 +57,7 @@ routes.get('/calculate/total', loggedIn, calcs.total)
 
 //Wallet Moviment
 routes.get('/wallets_moviments', loggedIn, wallets_moviments.index);
-routes.post('/wallets_moviments/:category_id/:wallet_id', loggedIn, wallets_moviments.store); //terei acesso ao valor no body ou no link?
+routes.post('/wallets_moviments/c/:category_id/w/:wallet_id', loggedIn, wallets_moviments.store); //terei acesso ao valor no body ou no link?
 routes.get('/wallets_moviments/create', loggedIn, wallets_moviments.create);
 routes.get('/wallets_moviments/:id', loggedIn, wallets_moviments.show);
 routes.delete('/wallets_moviments/:id', loggedIn, wallets_moviments.destroy); //apenas o registro do movimento é deletado, o valor modificado na carteira permanece
