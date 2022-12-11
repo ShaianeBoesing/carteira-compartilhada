@@ -1,4 +1,5 @@
 const Wallet = require('../models/Wallet');
+const UserWallet = require('../models/UserWallet');
 
 exports.index = async function(req, res) {
     let wallets = await Wallet.find();
@@ -12,11 +13,7 @@ exports.show = async function(req, res) {
 };
 
 exports.create = function(req, res) {
-    if (typeof __current_user !== 'undefined') {
-        res.sendFile(__basedir + '/web/views/wallets/form.html');
-    } else {
-        res.sendFile(__basedir + '/web/views/login/index.html');
-    }
+    res.sendFile(__basedir + '/web/views/wallets/form.html');
 };
 
 exports.store = async function(req, res) {
@@ -24,8 +21,9 @@ exports.store = async function(req, res) {
         const name = (req.body.name).trim().toUpperCase();
         let wallet = await Wallet.findOne({"name": name});
         if(!wallet) {
-            const data = {name};
+            const data = {"name": name};
             let wallet = await Wallet.create(data);
+            let userWallet = await UserWallet.create({wallet: wallet, user: __current_user})
             res.status(201).json({message: 'Carteira Criada com Sucesso', wallet: wallet});  
         } else  {
             res.status(409).json({message: 'Não é possível criar duas carteiras com o mesmo nome'});

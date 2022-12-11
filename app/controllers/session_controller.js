@@ -2,17 +2,13 @@ const User = require('../models/User');
 const md5 = require('md5');
 
 exports.index = function(req, res) {
-    if (typeof __current_user !== 'undefined') {
-        res.sendFile(__basedir + '/web/views/dashboard/dashboard.html');
-    } else {
-        res.sendFile(__basedir + '/web/views/login/index.html');
-    }
+    res.sendFile(__basedir + '/web/views/dashboard/dashboard.html');
 };
 
 exports.login = async function(req, res) {
     let email = req.body.email;
     let password = req.body.password;
-    let user = await User.find({"email": email, "password": md5(password)});
+    let user = await User.findOne({"email": email, "password": md5(password)});
     if (!user) {
         return res.status(404).send({ message: "User not found" });
     }
