@@ -3,18 +3,11 @@ main {
   display: flex;
   overflow: auto;
 }
-
-.coluna {
-  overflow-y:hidden;
-}
-
 .container {
   height: 100vh;
   border: 1px solid red;
-  overflow: auto;
 }
 
-#historico{
-  overflow-y: auto;
-  height: 70vh;
+.table-responsive{
+  max-height:80vh;
 }
