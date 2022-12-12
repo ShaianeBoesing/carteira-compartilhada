@@ -1,7 +1,7 @@
-const logar = () => {
+const logar = async () => {
     const email = document.querySelector('#email');
     const password = document.querySelector('#password');
-    
+
     const url = '/login';
 
     let data = {
@@ -17,6 +17,14 @@ const logar = () => {
         })
     }
 
-    fetch(url, fetchData)
-    .then(window.location.href = "/", )
+    let requisicao = await fetch(url, fetchData);
+    let status = requisicao.status;
+    console.log(status);
+
+    if (status === 200) {
+        window.location.href = '/';
+    }
+    else {
+        window.alert('Usuário inválido!');
+    }
 }

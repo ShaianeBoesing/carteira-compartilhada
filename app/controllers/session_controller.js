@@ -17,7 +17,6 @@ exports.login = async function(req, res) {
     res.status(200).send(user);
 };
 
-
 exports.logout = async function(req, res) {
     global.__current_user = undefined;
     return res.status(205).send({ message: "Logged Out" });
