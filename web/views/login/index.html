@@ -7,9 +7,11 @@
     <title>Document</title>
     
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/login.css">
     <script src="./js/bootstrap.js"></script>
     <script src="./js/jquery.js"></script>
-    <link rel="stylesheet" href="./css/login.css">
+    <script src="./js/users.js"></script>
+
 </head>
 
 <body>
@@ -25,15 +27,15 @@
 
                                     <div class="form-group">
                                         <label class="form-label" for="form3Example3cg">E-mail</label>
-                                        <input type="email" id="form3Example3cg" class="form-control form-control-lg" required/>
+                                        <input type="email" id="email" class="form-control form-control-lg" required/>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label" for="form3Example4cg">Senha</label>
-                                        <input type="password" id="form3Example4cg"
+                                        <input type="password" id="password"
                                             class="form-control form-control-lg"  required/>
                                     </div>
                                     <div class="d-flex justify-content-center">
-                                        <button type="button"
+                                        <button type="button" onclick="logar()"
                                             class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Logar</button>
                                     </div>
 
