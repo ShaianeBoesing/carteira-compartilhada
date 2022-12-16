@@ -13,7 +13,7 @@ exports.show = async function(req, res) {
 };
 
 exports.create = function(req, res) {
-    res.sendFile(__basedir + '/web/views/wallets/form.html');
+    res.sendFile(__basedir + '/web/views/wallets/create_wallet.html');
 };
 
 exports.store = async function(req, res) {
