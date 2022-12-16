@@ -2,7 +2,7 @@ const User = require('../models/User');
 const md5 = require('md5');
 
 exports.index = function(req, res) {
-    res.sendFile(__basedir + '/web/views/dashboard/dashboard.html');
+    res.sendFile(__basedir + '/web/views/dashboard/wallets.html');
 };
 
 exports.login = async function(req, res) {
