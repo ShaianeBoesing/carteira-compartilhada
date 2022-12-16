@@ -5,6 +5,10 @@ exports.index = function(req, res) {
     res.sendFile(__basedir + '/web/views/dashboard/wallets.html');
 };
 
+exports.select = function(req, res) {
+    res.sendFile(__basedir + '/web/views/dashboard/dashboard.html');
+}
+
 exports.login = async function(req, res) {
     let email = req.body.email;
     let password = req.body.password;

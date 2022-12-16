@@ -28,6 +28,7 @@ routes.post('/wallets', loggedIn, wallets.store);
 routes.get('/wallets/create', loggedIn, wallets.create);
 routes.get('/wallets/:id', loggedIn, wallets.show);
 routes.delete('/wallets/:id', loggedIn, wallets.destroy);
+routes.get('/dashboard', loggedIn, session.select);
 
 //Users Wallets
 routes.get('/users_wallets/users/w/:wallet_id', loggedIn, users_wallets.getUsers);
