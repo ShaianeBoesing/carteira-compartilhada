@@ -1,4 +1,4 @@
-const create_wallet = async ()=>{
+const populate = async ()=>{
     const nome = document.querySelector('#nome').value;
     const email = document.querySelector('#email').value;
 

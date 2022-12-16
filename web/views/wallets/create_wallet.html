@@ -5,15 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bootstrap Site</title>
-    <link rel="stylesheet" href="../css/bootstrap.css" />
     <script src="../js/bootstrap.bundle.js"></script>
+    <script src="../js/create_wallet.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.css" />
     <link href ='../css/create_walllet.css' rel="stylesheet">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg fixed-top bg-light ">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Carteiras</a>
+            <a class="navbar-brand" href="/">Carteiras</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -56,20 +57,20 @@
 
                                     <div class="form-group">
                                         <label class="form-label" for="form3Example3cg">Nome</label>
-                                        <input type="email" id="email" class="form-control form-control-lg" required/>
+                                        <input id="nome" class="form-control form-control-lg" required/>
                                     </div>
                                     <div class="form-group mt-3">
                                         <label class="form-label" for="form3Example4cg">Email de parceiros</label>
-                                        <input type="password" id="password"
+                                        <input id="email"
                                             class="form-control form-control-lg"/>
                                         <div class="form-text">Se houver mais de um parceiro, separe-o por vírgula.</div>
                                         <div class="form-text">Caso não houver parceiro, deixe em branco.</div>
                                     </div>
                                     <div class="d-flex justify-content-center">
-                                        <button type="button" onclick="logar()"
+                                        <button type="button" onclick="create_wallet()"
                                             class="btn mt-3 btn-success btn-block btn-lg gradient-custom-4 text-body">Criar</button>
                                     </div>
-                                    <div class="form-text text-danger"></div>
+                                    <div class="form-text text-danger mb-0" id="error"></div>
                                 </form>
                             </div>
                         </div>

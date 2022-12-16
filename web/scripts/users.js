@@ -26,7 +26,7 @@ const logar = async () => {
         window.location.href = '/';
     }
     else {
-        window.alert('Usuário inválido!');
+        window.alert(requisicao.message);
     }
 }
 
