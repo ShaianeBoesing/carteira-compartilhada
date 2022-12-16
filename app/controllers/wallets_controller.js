@@ -18,7 +18,7 @@ exports.create = function(req, res) {
 
 exports.store = async function(req, res) {
     if (validateWallet(req)) {
-        const name = (req.body.nome).toUpperCase();
+        const name = (req.body.nome).trim().toUpperCase();
         let wallet = await Wallet.findOne({"name": name});
         if(!wallet) {
             const data = {"name": name};
@@ -44,6 +44,6 @@ exports.destroy = async function(req, res) {
 };
 
 const validateWallet = (req) => {
-    const name = req.body.nome;
+    const name = req.body.nome.trim();
     return name.length > 3;
 }
