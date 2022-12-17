@@ -14,15 +14,26 @@ exports.getWallets = async function(req, res) {
 };
 
 exports.addParticipant = async function(req, res) {
-    let participant = await User.findOne({_id: req.params.participant_id});
+    let participants_emails = req.body.participants_emails;
     let wallet = await Wallet.findOne({_id: req.params.wallet_id});
-    let already_in_wallet = await UserWallet.findOne({user: participant, wallet: wallet})
-    if (!already_in_wallet) {
-        let userWallet = await UserWallet.create({wallet: wallet, user: participant, role: 'Participante'});
-        res.status(201).json({data: userWallet, message: 'Participante Adicionado com Sucesso!'});    
-    } else {
-        res.status(409).json({message: 'Usuário já é Participante da Carteira!'});    
-    }
+    let users_wallets = []; 
+    let errors = []
+    participants_emails.forEach(async email => {
+        participant = await User.findOne({email: email})
+        if (!participant) {
+            errors.push(`E-mail ${email} inválido`)
+        } else {
+            let already_in_wallet = await UserWallet.findOne({user: participant, wallet: wallet})
+            if (!already_in_wallet) {
+                let user_wallet = await UserWallet.create({wallet: wallet, user: participant, role: 'Participante'});
+                users_wallets.push(user_wallet)
+            } else {
+                errors.push(`Usuário ${participant.name} já faz parte da carteira`)
+            }
+        }
+    });
+    
+    res.status(201).json({data: userWallet, message: `${users_wallets.length} Participantes Adicionados!`, errors: JSON.stringify(errors)});                
 };
 
 
