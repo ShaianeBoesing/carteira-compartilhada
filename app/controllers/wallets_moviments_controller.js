@@ -21,14 +21,16 @@ exports.create = async function(req,res) {
 
 exports.store = async function(req, res) {
     if (validateWMC(req)) {
-        const category = await Category.findOne({_id: req.params.category_id})
+        const category = req.body.category;
         const wallet = await Wallet.findOne({_id: req.params.wallet_id})
         let value = req.body.value;
+        const description = req.body.description
 
         const data = {
             "category_id": category, 
             "wallet_id": wallet,
-            "value": value
+            "value": value,
+            "description": description
         };
 
         let wmc = await WalletMoviment.create(data);
@@ -62,11 +64,16 @@ exports.destroyAll = async function(req, res) {
 };
 
 async function validateWMC(req) {
-    const category = await Category.findOne({_id: req.params.category_id});
+    const category = req.body.category;
     const wallet = await Wallet.findOne({_id: req.params.wallet_id});
 //    const category = req.params.category_id;
 //    const wallet = req.params.wallet_id;
     const value = req.body.value;
-    return ((category instanceof Category) && (wallet instanceof Wallet) && (typeof(value) == "number"))
+    const description = req.body.description
+
+    return ((category instanceof Category)
+     && (wallet instanceof Wallet) 
+     && (typeof(value) == "number")
+     && (typeof(description) == "string"))
 }
 

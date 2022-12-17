@@ -57,7 +57,7 @@ routes.get('/calculate/total', loggedIn, calcs.total)
 
 //Wallet Moviment
 routes.get('/wallets_moviments', loggedIn, wallets_moviments.index);
-routes.post('/wallets_moviments/c/:category_id/w/:wallet_id', loggedIn, wallets_moviments.store); //terei acesso ao valor no body ou no link?
+routes.post('/wallets_moviments/w/:wallet_id', loggedIn, wallets_moviments.store); //terei acesso ao valor no body ou no link?
 routes.get('/wallets_moviments/create', loggedIn, wallets_moviments.create);
 routes.get('/wallets_moviments/:id', loggedIn, wallets_moviments.show);
 routes.delete('/wallets_moviments/:id', loggedIn, wallets_moviments.destroy); //apenas o registro do movimento é deletado, o valor modificado na carteira permanece
