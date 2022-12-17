@@ -34,7 +34,7 @@ routes.get('/dashboard', loggedIn, session.select);
 //Users Wallets
 routes.get('/users_wallets/users/w/:wallet_id', loggedIn, users_wallets.getUsers);
 routes.get('/users_wallets/wallets', loggedIn, users_wallets.getWallets);
-routes.post('/users_wallets/w/:wallet_id/u/:participant_id', loggedIn, users_wallets.addParticipant);
+routes.post('/users_wallets/w/:wallet_id', loggedIn, users_wallets.addParticipant);
 routes.delete('/users_wallets/w/:wallet_id/u/:participant_id', loggedIn, users_wallets.removeParticipant);
 
 //Category
@@ -65,4 +65,4 @@ routes.get('/wallets_moviments/:id', loggedIn, wallets_moviments.show);
 routes.delete('/wallets_moviments/:id', loggedIn, wallets_moviments.destroy); //apenas o registro do movimento é deletado, o valor modificado na carteira permanece
 routes.delete('/wallets_moviments/delete/all', loggedIn, wallets_moviments.destroyAll);
 
-module.exports = routes; 
+module.exports = routes;
