@@ -7,6 +7,7 @@
     <title>Bootstrap Site</title>
     <script src="../js/bootstrap.bundle.js"></script>
     <script src="../js/create_wallet.js"></script>
+    <script src="../js/users.js"></script>
     <link rel="stylesheet" href="../css/bootstrap.css" />
     <link href ='../css/create_walllet.css' rel="stylesheet">
 </head>
@@ -41,6 +42,18 @@
                             <li><a class="dropdown-item" href="/users/me">Meus dados</a></li>
                             <li><a class="dropdown-item" type="'button" onClick='logout()' href="#">Logout</a></li>
                         </ul>
+                        
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Categoria
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/categories/create">Criar categoria</a></li>
+                            <li><a class="dropdown-item" href="/categories/alter">Alterar categoria</a></li>
+                            <li><a class="dropdown-item" href="/categories/remove">Remover categoria</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -52,10 +65,9 @@
                 <div class="row d-flex justify-content-center align-items-center h-100">
                     <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                         <div class="card" style="border-radius: 15px;">
-                            <div class="card-body p-5">
+                            <div class="card-body p-5" id="corpo">
                                 <h2 class="text-uppercase text-center mb-5">Criar carteira</h2>
                                 <form class="need-validation">
-
                                     <div class="form-group">
                                         <label class="form-label" for="form3Example3cg">Nome</label>
                                         <input id="nome" class="form-control form-control-lg" required/>
