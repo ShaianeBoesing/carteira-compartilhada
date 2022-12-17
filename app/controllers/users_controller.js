@@ -45,7 +45,7 @@ exports.update = async function(req, res) {
         const id = req.params.id;
         const name = req.body.name;
         const email = req.body.email;
-        let user = await User.findOneAndUpdate({"_id": id}, {name: name, email: email}, {new: true});  //new é para retornar o usuário com seus valores atualizados  
+        let user = await User.findOneAndUpdate({"_id": id}, {name: name, email: email}, {new: true});//new é para retornar o usuário com seus valores atualizados  
         if(user) {
             res.status(201).json({message: 'Usuário Atualizado com Sucesso', user: user});
         } else  {

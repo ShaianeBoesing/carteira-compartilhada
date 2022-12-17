@@ -10,6 +10,7 @@
     <script src="../js/bootstrap.bundle.js"></script>
     <script src="../js/create_wallet.js"></script>
     <script src="../js/get-user.js"></script>
+    <script src="../js/users.js"></script>
     <script src="../js/jquery.js"></script>
     <link rel="stylesheet" href="../css/bootstrap.css" />
     <link href='../css/create_walllet.css' rel="stylesheet">
@@ -43,7 +44,7 @@
                             Conta
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/users/me">Meus dados</a></li>
+                            <li><a class="dropdown-item" href="#">Meus dados</a></li>
                             <li><a class="dropdown-item" type="'button" onClick='logout()' href="#">Logout</a></li>
                         </ul>
 
@@ -72,28 +73,20 @@
                             <div class="card-body p-5">
                                 <h2 class="text-uppercase text-center mb-5">Criar conta</h2>
                                 <form>
-                                    <div class="input-group mb-3">
-                                        <input id="username" data-mode="default" type="text" class="form-control" placeholder="Recipient's username"
-                                            aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                        <button id="alterar-nome" class="btn btn-outline-secondary" type="button" onclick="alterar(this)">Alterar</button>
-                                    </div>
-                                    <!-- <div class="form-group">
+                                    <div class="form-group">
                                         <label class="form-label" for="form3Example1cg">Nome</label>
-                                        <input id="username" type="text" class="form-control form-control-lg" />
-                                    </div> -->
+                                        <input id="username" type="text" class="form-control form-control-lg"
+                                            disabled />
+                                    </div>
 
                                     <div class="form-group">
                                         <label class="form-label" for="form3Example3cg">E-mail</label>
-                                        <input id="email" type="email" class="form-control form-control-lg" />
+                                        <input id="email" type="email" class="form-control form-control-lg" disabled />
                                     </div>
 
-                                    <div class="form-group">
-                                        <label class="form-label" for="form3Example4cg">Senha</label>
-                                        <input class="form-control form-control-lg" id="password" type="password">
-                                    </div>
-                                    <div class="form-group align-content-lg-around">
-                                        <input class="align-self-auto" type="checkbox" onclick="hidePassWord()"> Mostrar
-                                        senha
+                                    <div class="d-flex justify-content-center">
+                                        <button id="alterar" data-mode="default" class="btn btn-outline-secondary"
+                                            type="button" onclick="change()">Alterar</button>
                                     </div>
                                 </form>
                             </div>
