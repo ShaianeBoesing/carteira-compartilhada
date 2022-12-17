@@ -49,5 +49,5 @@ exports.destroy = async function(req, res) {
 
 const validateWallet = (req) => {
     const name = req.body.nome.trim();
-    return name.length > 3;
+    return name.length > 3 && name.length< 15;
 }
