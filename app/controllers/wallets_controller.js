@@ -16,6 +16,10 @@ exports.create = function(req, res) {
     res.sendFile(__basedir + '/web/views/wallets/create_wallet.html');
 };
 
+exports.remove = function(req, res) {
+    res.sendFile(__basedir + '/web/views/wallets/remove_wallet.html');
+};
+
 exports.store = async function(req, res) {
     if (validateWallet(req)) {
         const name = (req.body.nome).trim().toUpperCase();

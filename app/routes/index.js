@@ -26,6 +26,7 @@ routes.delete('/users/delete/all', loggedIn, users.destroyAll);
 routes.get('/wallets', loggedIn, wallets.index);
 routes.post('/wallets', loggedIn, wallets.store);
 routes.get('/wallets/create', loggedIn, wallets.create);
+routes.get('/wallets/remove', loggedIn, wallets.remove);
 routes.get('/wallets/:id', loggedIn, wallets.show);
 routes.delete('/wallets/:id', loggedIn, wallets.destroy);
 routes.get('/dashboard', loggedIn, session.select);
