@@ -43,6 +43,7 @@ const change = async () => {
     button.disabled = false;
     return
   }
+  button.setAttribute('data-mode', 'default');
   button.innerHTML = 'Alterar';
   button.style.backgroundColor = 'white';
   button.style.color = 'grey';
