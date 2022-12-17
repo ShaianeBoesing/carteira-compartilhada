@@ -51,7 +51,7 @@ const delete_wallet = async ()=>{
         })
     }
     const promisse = await fetch(url_delete,fetchData)
-    if (promisse.status == 201){
+    if (promisse.status == 204){
         const corpo = document.getElementById('corpo')
         const mensagem = document.createElement('h2')
         let card_btn = document.createElement('a')
