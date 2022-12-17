@@ -8,7 +8,7 @@
     <script src="../js/bootstrap.bundle.js"></script>
     <script src="../js/users.js"></script>
     <link rel="stylesheet" href="../css/bootstrap.css" />
-    <link href ='../css/create_walllet.css' rel="stylesheet">
+    <link href='../css/create_walllet.css' rel="stylesheet">
 </head>
 
 <body>
@@ -41,6 +41,18 @@
                             <li><a class="dropdown-item" href="#">Meus dados</a></li>
                             <li><a class="dropdown-item" type="'button" onClick='logout()' href="#">Logout</a></li>
                         </ul>
+
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Categoria
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/categories/create">Criar categoria</a></li>
+                            <li><a class="dropdown-item" href="/categories/alter">Alterar categoria</a></li>
+                            <li><a class="dropdown-item" href="/categories/remove">Remover categoria</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -57,9 +69,9 @@
                                 <form class=" need-validation d-flex ">
                                     <select id='form' class="form-select" aria-label="Default select example">
                                         <script src="../js/remove_wallet.js"></script>
-                                      </select>
-                                      <button type="button" onclick="delete_wallet()"
-                                      class="btn mx-3 btn-success btn-block btn-lg gradient-custom-4 text-body">Remover</button>
+                                    </select>
+                                    <button type="button" onclick="delete_wallet()"
+                                        class="btn mx-3 btn-success btn-block btn-lg gradient-custom-4 text-body">Remover</button>
                                 </form>
                             </div>
                         </div>

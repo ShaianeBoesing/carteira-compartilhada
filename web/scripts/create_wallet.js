@@ -35,9 +35,8 @@ const create_wallet = async () => {
         url_add_part = url_add_part + reqJson.wallet._id
         let add_participantes = await fetch(url_add_part, fetchData_add)
         let promisse = await add_participantes.json()
-        console.log(promisse.errors)
 
-        const div = document.createElement('dib')
+        const div = document.createElement('div')
         const corpo = document.getElementById('corpo')
         const mensagem = document.createElement('h2')
         let card_btn = document.createElement('a')

@@ -41,6 +41,8 @@ routes.delete('/users_wallets/w/:wallet_id/u/:participant_id', loggedIn, users_w
 routes.get('/categories', loggedIn, categories.index);
 routes.post('/categories', loggedIn, categories.store);
 routes.get('/categories/create', loggedIn, categories.create);
+routes.get('/categories/alter', loggedIn, categories.alter);
+routes.get('/categories/remove', loggedIn, categories.remove);
 routes.get('/categories/:id', loggedIn, categories.show);
 routes.patch('/categories/:id', loggedIn, categories.update);
 routes.delete('/categories/:id', loggedIn, categories.destroy);
