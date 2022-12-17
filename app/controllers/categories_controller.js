@@ -12,15 +12,15 @@ exports.show = async function(req, res) {
 };
 
 exports.create = function(req, res) {
-    res.sendFile(__basedir + '/web/views/categories/create_categorie.html');
+    res.sendFile(__basedir + '/web/views/categories/create_category.html');
 };
 
 exports.remove = function(req, res) {
-    res.sendFile(__basedir + '/web/views/categories/remove_categorie.html');
+    res.sendFile(__basedir + '/web/views/categories/remove_category.html');
 };
 
 exports.alter = function(req, res) {
-    res.sendFile(__basedir + '/web/views/categories/alter_categorie.html');
+    res.sendFile(__basedir + '/web/views/categories/alter_category.html');
 };
 
 exports.store = async function(req, res) {
