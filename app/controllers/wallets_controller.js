@@ -13,12 +13,16 @@ exports.show = async function(req, res) {
 };
 
 exports.create = function(req, res) {
-    res.sendFile(__basedir + '/web/views/wallets/form.html');
+    res.sendFile(__basedir + '/web/views/wallets/create_wallet.html');
+};
+
+exports.remove = function(req, res) {
+    res.sendFile(__basedir + '/web/views/wallets/remove_wallet.html');
 };
 
 exports.store = async function(req, res) {
     if (validateWallet(req)) {
-        const name = (req.body.name).trim().toUpperCase();
+        const name = (req.body.nome).trim().toUpperCase();
         let wallet = await Wallet.findOne({"name": name});
         if(!wallet) {
             const data = {"name": name};
@@ -44,6 +48,6 @@ exports.destroy = async function(req, res) {
 };
 
 const validateWallet = (req) => {
-    const name = req.body.name.trim();
-    return name.length > 3;
+    const name = req.body.nome.trim();
+    return name.length > 3 && name.length< 15;
 }
