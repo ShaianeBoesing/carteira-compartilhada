@@ -7,9 +7,13 @@ exports.index = async function(req, res) {
 };
 
 exports.show = async function(req, res) {
-    let user = __current_user
-    res.status(201).json({data: user});
+    res.sendFile(__basedir + '/web/views/users/show.html');
 };
+
+exports.get = async function(req, res) {
+    let user = __current_user;
+    res.status(201).json({data: user});
+}
 
 exports.create = function(req, res) {
     res.sendFile(__basedir + '/web/views/users/form.html');

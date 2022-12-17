@@ -17,6 +17,7 @@ routes.post('/logout', session.logout);
 routes.get('/users', loggedIn, users.index);
 routes.post('/users', users.store);
 routes.get('/users/create', users.create);
+routes.get('/users/get', loggedIn, users.get);
 routes.get('/users/me', loggedIn, users.show);
 routes.patch('/users/:id', loggedIn, users.update);
 routes.delete('/users/:id', loggedIn, users.destroy);
