@@ -1,1 +1,51 @@
-<h1> Tela de Login</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="../../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../../../node_modules/jquery/dist/jquery.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <section class="vh-100 bg-image">
+        <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+            <div class="container h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                        <div class="card" style="border-radius: 15px;">
+                            <div class="card-body p-5">
+                                <h2 class="text-uppercase text-center mb-5">Login</h2>
+                                <form class="need-validation">
+
+                                    <div class="form-group">
+                                        <label class="form-label" for="form3Example3cg">E-mail</label>
+                                        <input type="email" id="form3Example3cg" class="form-control form-control-lg" required/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="form3Example4cg">Senha</label>
+                                        <input type="password" id="form3Example4cg"
+                                            class="form-control form-control-lg"  required/>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button"
+                                            class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Logar</button>
+                                    </div>
+
+                                    <p class="text-center text-muted mt-5 mb-0">Não tem uma conta? <a href="/carteira-compartilhada/web/views/register/register.html"
+                                            class="fw-bold text-body"><u>Registrar</u></a></p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
