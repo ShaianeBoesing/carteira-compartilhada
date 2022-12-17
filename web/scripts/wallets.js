@@ -74,32 +74,32 @@ const populate = async () => {
         let message = await requisicao.json()
         window.alert(message)
     }
-    if(tela.childElementCount === 1 ){
+    if (tela.childElementCount === 1) {
         let container = document.createElement('div')
-                let card = document.createElement('div')
-                let card_body = document.createElement('div')
-                let card_title = document.createElement('h5')
-                let card_text = document.createElement('p')
-                let card_btn = document.createElement('a')
+        let card = document.createElement('div')
+        let card_body = document.createElement('div')
+        let card_title = document.createElement('h5')
+        let card_text = document.createElement('p')
+        let card_btn = document.createElement('a')
 
-                container.className = 'col-sm-6 mt-3 mb-3'
-                card.className = 'card'
-                card_body.className = 'card-body text-center'
-                card_title.className = 'card-title'
-                card_text.className = 'card-text'
-                card_btn.className = 'btn btn-primary'
-                card_btn.href = '/wallets/create'
-                container.appendChild(card)
-                card.appendChild(card_body)
-                card_body.appendChild(card_title, card_text, card_btn)
-                card_body.appendChild(card_text)
-                card_body.appendChild(card_btn)
+        container.className = 'col-sm-6 mt-3 mb-3'
+        card.className = 'card'
+        card_body.className = 'card-body text-center'
+        card_title.className = 'card-title'
+        card_text.className = 'card-text'
+        card_btn.className = 'btn btn-primary'
+        card_btn.href = '/wallets/create'
+        container.appendChild(card)
+        card.appendChild(card_body)
+        card_body.appendChild(card_title, card_text, card_btn)
+        card_body.appendChild(card_text)
+        card_body.appendChild(card_btn)
 
 
-                card_title.innerHTML = 'Uau, que vazio!'
-                card_btn.innerText = 'Criar'
-                card_text.innerHTML = `Crie uma carteira para vizualiza-la aqui!`
-                tela.appendChild(container)
+        card_title.innerHTML = 'Uau, que vazio!'
+        card_btn.innerText = 'Criar'
+        card_text.innerHTML = `Crie uma carteira para vizualiza-la aqui!`
+        tela.appendChild(container)
     }
 }
 populate()
