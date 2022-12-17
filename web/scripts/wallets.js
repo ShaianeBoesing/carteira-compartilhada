@@ -3,7 +3,7 @@ const populate = async () => {
 
     const tela = document.getElementById('tela')
 
-    const meFetch = await fetch(`/users/me`)
+    const meFetch = await fetch(`/users/get`)
     const meJson = await meFetch.json()
     const me = meJson.data
 

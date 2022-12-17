@@ -3,7 +3,7 @@ const populate = async () => {
 
     const form = document.getElementById('form')
 
-    const meFetch = await fetch(`/users/me`)
+    const meFetch = await fetch(`/users/get`)
     const meJson = await meFetch.json()
     const me = meJson.data
 
