@@ -8,7 +8,7 @@
     <script src="../js/bootstrap.bundle.js"></script>
     <script src="../js/users.js"></script>
     <link rel="stylesheet" href="../css/bootstrap.css" />
-    <link href ='../css/create_walllet.css' rel="stylesheet">
+    <link href='../css/create_walllet.css' rel="stylesheet">
 </head>
 
 <body>
@@ -41,7 +41,7 @@
                             <li><a class="dropdown-item" href="#">Meus dados</a></li>
                             <li><a class="dropdown-item" type="'button" onClick='logout()' href="#">Logout</a></li>
                         </ul>
-                        
+
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -66,12 +66,22 @@
                         <div class="card" style="border-radius: 15px;">
                             <div id='corpo' class="card-body p-5">
                                 <h2 class="text-uppercase text-center mb-5 ">Alterar categoria</h2>
-                                <form class=" need-validation d-flex ">
+                                <form class=" need-validation ">
+                                    <label class="form-label mt-3" for="form3Example3cg">Categoria</label>
                                     <select id='form' class="form-select" aria-label="Default select example">
-                                        <script src="../js/remove_wallet.js"></script>
-                                      </select>
-                                      <button type="button" onclick="delete_wallet()"
-                                      class="btn mx-3 btn-success btn-block btn-lg gradient-custom-4 text-body">Remover</button>
+                                        <script src="../js/alter_category.js"></script>
+                                    </select>
+                                    <div class="form-group">
+                                        <label class="form-label mt-3" for="form3Example3cg">Nome</label>
+                                        <input id="nome" class="form-control form-control-lg" required />
+                                    </div>
+                                    <label class="form-label" for="form3Example3cg">Tipo</label>
+                                    <select id='form2' class="form-select mt-1" aria-label="Default select example">
+                                        <option value="Entrada">Entrada</option>
+                                        <option value="Saida">Saída</option>
+                                    </select>
+                                    <button type="button" onclick="alter_category()"
+                                        class="btn mt-3 btn-success btn-block btn-lg gradient-custom-4 text-body">Alterar</button>
                                 </form>
                             </div>
                         </div>
