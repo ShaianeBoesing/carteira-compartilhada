@@ -8,7 +8,8 @@ const walletMovimentSchema = new Schema(
     { 
         category_id: {type: mongoose.Types.ObjectId, ref: "Category"},
         wallet_id: {type: mongoose.Types.ObjectId, ref: "Wallet"},
-        value: {type: Number}
+        value: {type: Number},
+        description: {type: String}
     },
     { timestamps: true }
 );
