@@ -67,14 +67,14 @@
                         <div class="card" style="border-radius: 15px;">
                             <div class="card-body p-6" id="corpo">
                                 <h2 id="nome-carteira" class="text-uppercase text-center mb-5"></h2>
-                                <form class="row h-100">
+                                <form id="formulario" class="row h-100 needs-validation">
                                     <div class="col">
                                         <label class="form-label mt-3">Descrição</label>
-                                        <input id='descricao' class="form-control" placeholder="Descrição" type="text">
+                                        <input id='descricao' class="form-control" placeholder="Descrição" type="text" required>
                                     </div>
                                     <div class="col">
                                         <label class="form-label mt-3">Valor</label>
-                                        <input id='valor' class="form-control" placeholder="Valor" type="number">
+                                        <input id='valor' class="form-control" placeholder="Valor" type="number" required>
                                     </div>
                                     <div class="col">
                                         <label class="form-label mt-3" for="form3Example3cg">Categoria</label>
@@ -82,7 +82,7 @@
                                         </select>
                                     </div>
                                     <div class="col-2 d-flex justify-content-center">
-                                        <button type="button" class="btn btn-primary" onclick="atualizar_dados()"> Enviar </button>
+                                        <button type="submit" class="btn btn-primary" onclick="atualizar_dados()"> Enviar </button>
                                     </div>
                                 </form>
                                 <div class="row">
@@ -102,11 +102,6 @@
                                                 </tr>
                                             </thead>
                                             <tbody id="tabela" class="table-responsive ">
-                                                <tr>
-                                                    <td>11/12/2002</td>
-                                                    <td>Item comprado</td>
-                                                    <td>$XX,XX</td>
-                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>

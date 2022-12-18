@@ -50,7 +50,7 @@ const getWallet = async () => {
 const getMovements = async () => {
     let urlSplitada = document.URL.split('/');
     urlSplitada = urlSplitada[urlSplitada.length - 1];
-   
+
     const url = ` /wallets_moviments/all/w/${urlSplitada}`;
 
     const fetchData = {
@@ -62,35 +62,70 @@ const getMovements = async () => {
 
     const requisicao = await fetch(url, fetchData);
     const jason = await requisicao.json();
-    console.log(jason);
+    const data = jason.data;
+    data.reverse();
+
+    const tabel = document.querySelector("#tabela");
+    tabel.innerHTML = "";
+    data.forEach(async movement => {
+        const carteira = await fetch(`/categories/${movement.category_id}`);
+        const response = await carteira.json();
+        const sinal = response.data[0].type === 'Saida' ? '-' : '&nbsp';
+        let tr = document.createElement("tr");
+        let td = [];
+        let tdData = document.createElement("td");
+        let time = formatarDataPadraoFrontend(movement.createdAt);
+        tdData.innerHTML = `${time}`;
+        let tdDescricao = document.createElement("td");
+        tdDescricao.innerHTML = `${movement.description}`;
+        let tdValue = document.createElement("td");
+        tdValue.innerHTML = `${sinal}R$${movement.value.toFixed(2)}`;
+        td.push(tdData);
+        td.push(tdDescricao);
+        td.push(tdValue);
+        td.forEach(i => tr.appendChild(i));
+        tabel.appendChild(tr);
+    });
 };
 
 async function atualizar_dados() {
     let urlSplitada = document.URL.split('/');
     urlSplitada = urlSplitada[urlSplitada.length - 1];
 
-    const value = document.querySelector("#valor").value;
-    const category_id = document.getElementById("categoria").value;
-    const description = document.querySelector("#descricao").value;
+    const value = document.querySelector("#valor");
+    const category_id = document.getElementById("categoria");
+    const description = document.querySelector("#descricao");
 
-    const url = `/wallets_moviments/w/${urlSplitada}`;
+    if (value.value !== '' && description.value !== '') {
 
-    const dataToSend = {
-        category_id : category_id,
-        value : parseInt(value),
-        description : description
+        const url = `/wallets_moviments/w/${urlSplitada}`;
+
+        const dataToSend = {
+            category_id: category_id.value,
+            value: parseInt(value.value),
+            description: description.value
+        }
+
+        const fetchData = {
+            method: 'POST',
+            body: JSON.stringify(dataToSend),
+            headers: new Headers({
+                'Content-Type': 'application/json; charset=UTF-8'
+            })
+        }
+
+        const requisicao = await fetch(url, fetchData);
+        const jason = await requisicao.json();
+
+        document.getElementById('total-carteira').innerHTML = `R$ ${jason.wallet.total.toFixed(2)}`;
+        getMovements();
     }
+}
 
-    const fetchData = {
-        method: 'POST',
-        body: JSON.stringify(dataToSend),
-        headers: new Headers({
-            'Content-Type': 'application/json; charset=UTF-8'
-        })
-    }
-
-    const requisicao = await fetch(url, fetchData);
-    const jason = await requisicao.json();
-
-    document.getElementById('total-carteira').innerHTML = `R$ ${jason.wallet.total.toFixed(2)}`;
+const formatarDataPadraoFrontend = function (date) {
+    const dateString = date.slice(0, 10);
+    let dia = dateString.slice(-2);
+    let mes = dateString.slice(5, 7);
+    let ano = dateString.slice(0, 4);
+    return (dia + '/' + mes + '/' + ano);
 }
