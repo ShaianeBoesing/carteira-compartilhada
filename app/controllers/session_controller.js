@@ -14,7 +14,7 @@ exports.login = async function(req, res) {
     let password = req.body.password;
     let user = await User.findOne({"email": email, "password": md5(password)});
     if (!user) {
-        return res.status(404).send({ message: "User not found" });
+        return res.status(404).send({ message: "Email não encontrado" });
     }
     global.__current_user = user;
 

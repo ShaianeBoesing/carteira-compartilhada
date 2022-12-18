@@ -19,13 +19,13 @@ const logar = async () => {
 
     let requisicao = await fetch(url_login, fetchData);
     let status = requisicao.status;
-    console.log(status);
+    let response = await requisicao.json();
 
     if (status === 200) {
         window.location.href = '/';
     }
     else {
-        window.alert(requisicao.message);
+        window.alert(response.message);
     }
 }
 
@@ -57,6 +57,14 @@ const registrar = async () => {
     const username = document.querySelector('#username');
     const email = document.querySelector('#email');
     const password = document.querySelector('#password');
+    const repeatPassWord = document.querySelector('#repeat-password');
+
+    if (!validateUserName(username.value))
+        return
+    if (!validateEmail(email))
+        return
+    if (!validarSenha(password.value, repeatPassWord.value))
+        return
 
     const url_store = '/users';
 
@@ -75,14 +83,15 @@ const registrar = async () => {
     }
 
     let requisicao = await fetch(url_store, fetchData);
-    let status = requisicao.status;
-    console.log(status);
+    let response = await requisicao.json();
 
-    if (status === 200) {
+    let status = requisicao.status;
+
+    if (status === 201) {
         window.location.href = '/';
     }
     else {
-        window.alert(requisicao.message);
+        window.alert(response.message);
     }
 }
 
@@ -93,4 +102,43 @@ const hidePassWord = () => {
     } else {
         password.type = "password";
     }
+}
+
+const validateUserName = (name) => {
+    if (name.length > 3) {
+        document.getElementById("msname").innerHTML = "Nome válido";
+        return true;
+    }
+    document.getElementById("msname").innerHTML = "Nome inválido";
+    return false;
+}
+
+const validateEmail = (field) => {
+    usuario = field.value.substring(0, field.value.indexOf("@"));
+    dominio = field.value.substring(field.value.indexOf("@") + 1, field.value.length);
+
+    if ((usuario.length >= 1) &&
+        (dominio.length >= 3) &&
+        (usuario.search("@") == -1) &&
+        (dominio.search("@") == -1) &&
+        (usuario.search(" ") == -1) &&
+        (dominio.search(" ") == -1) &&
+        (dominio.search(".") != -1) &&
+        (dominio.indexOf(".") >= 1) &&
+        (dominio.lastIndexOf(".") < dominio.length - 1)) {
+        document.getElementById("msgemail").innerHTML = "E-mail válido";
+        return true;
+    }
+    else {
+        document.getElementById("msgemail").innerHTML = "<font color='red'>E-mail inválido </font>";
+        return false;
+    }
+}
+
+const validarSenha = (password, repeat) => {
+    if (password != repeat) {
+        document.getElementById("msgsenha").innerHTML = "As senhas são diferentes";
+        return false
+    }
+    return true;
 }
