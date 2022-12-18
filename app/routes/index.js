@@ -48,14 +48,6 @@ routes.get('/categories/:id', loggedIn, categories.show);
 routes.patch('/categories/:id', loggedIn, categories.update);
 routes.delete('/categories/:id', loggedIn, categories.destroy);
 
-// //Category
-// routes.get('/categories', loggedIn, categories.index)
-// routes.post('/categories', loggedIn, categories.store)
-// routes.get('/categories/create', loggedIn, categories.create);
-// routes.get('/categories/:id', loggedIn, categories.show)
-// routes.patch('/categories/:id', loggedIn, categories.update);
-// routes.delete('/categories/:id', loggedIn, categories.destroy);
-
 //Calculate 
 routes.get('/calculate/total/wallet', loggedIn, calcs.totalByWallet)
 routes.get('/calculate/total', loggedIn, calcs.total)
