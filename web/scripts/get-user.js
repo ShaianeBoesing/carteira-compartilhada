@@ -1,9 +1,8 @@
 document.addEventListener("DOMContentLoaded", async () => {
   let username = document.querySelector('#username');
   let email = document.querySelector('#email');
-  let id;
 
-  const url_store = '/users/get';
+  const url_get = '/users/get';
 
   let fetchData = {
     method: 'GET',
@@ -13,14 +12,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     })
   }
 
-  let requisicao = await fetch(url_store, fetchData);
+  let requisicao = await fetch(url_get, fetchData);
   let status = requisicao.status;
   console.log(status);
   if (status === 201) {
     let response = await requisicao.json();
     username.value = response.data.name;
     email.value = response.data.email;
-    id = response.data._id;
   }
   else {
     window.alert(requisicao.message);
@@ -30,8 +28,27 @@ document.addEventListener("DOMContentLoaded", async () => {
 const change = async () => {
   const username = document.querySelector('#username');
   const email = document.querySelector('#email');
-  let id = '63896a15ece7dbe22765d3da';
+  let id;
   const button = document.querySelector('#alterar');
+
+  const url = '/users/get';
+  let fetchDados = {
+    method: 'GET',
+    body: JSON.stringify(),
+    headers: new Headers({
+      'Content-Type': 'application/json; charset=UTF-8'
+    })
+  }
+
+  let request = await fetch(url, fetchDados);
+  let stat = request.status;
+  if (stat === 201) {
+    let response = await request.json();
+    id = response.data._id;
+  }
+  else {
+    window.alert(requisicao.message);
+  }
 
   if (button.getAttribute('data-mode') === 'default') {
     button.setAttribute('data-mode', 'changing');

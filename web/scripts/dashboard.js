@@ -6,9 +6,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 const categories = async () => {
     const url = '/categories';
-
-    const form = document.getElementById('form')
-
     const fetchData = {
         method: 'GET',
         headers: new Headers({
@@ -43,8 +40,8 @@ const getWallet = async () => {
     const carteira = await fetch(`/wallets/${urlSplitada}`);
     const response = await carteira.json();
     const data = response.data;
-    document.getElementById('nome-carteira').
-    console.log(data);
+    document.getElementById('nome-carteira').innerHTML = `${data[0].name}`;
+    document.getElementById('total-carteira').innerHTML = `R$ ${data[0].total.toFixed(2)}`;
 };
 
 let saida_valor = document.getElementsByClassName('saida_valor')[0]
