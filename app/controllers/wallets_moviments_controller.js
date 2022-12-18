@@ -22,7 +22,7 @@ exports.create = async function(req,res) {
 exports.store = async function(req, res) {
     if (await validateWMC(req) == true) {
         const category = await Category.findOne({_id: req.body.category_id})
-        const wallet = await Wallet.findOne({_id: req.params.wallet_id})
+        let wallet = await Wallet.findOne({_id: req.params.wallet_id})
         let value = req.body.value;
         const description = req.body.description
 
@@ -42,7 +42,7 @@ exports.store = async function(req, res) {
         wallet.total += value
         await Wallet.updateOne({"_id": wallet.id}, {$set: {total: wallet.total}}); 
 
-        res.status(201).json({message: 'Movimento feito com Sucesso', wmc: wmc});  
+        res.status(201).json({message: 'Movimento feito com Sucesso', wallet: wallet, wmc: wmc});  
     } else {
         res.status(400).json({message: 'Valores inválidos'});
     }
