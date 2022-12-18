@@ -41,7 +41,6 @@ const populate = async () => {
                     }
                 }
 
-
                 let container = document.createElement('div')
                 let card = document.createElement('div')
                 let card_body = document.createElement('div')
@@ -49,21 +48,21 @@ const populate = async () => {
                 let card_text = document.createElement('p')
                 let card_btn = document.createElement('a')
 
-                container.className = 'col-sm-6 mt-3 mb-3'
-                card.className = 'card'
-                card_body.className = 'card-body'
-                card_title.className = 'card-title'
-                card_text.className = 'card-text'
-                card_btn.className = 'btn btn-primary'
-                card_btn.href = '/dashboard'
-                container.appendChild(card)
-                card.appendChild(card_body)
-                card_body.appendChild(card_title, card_text, card_btn)
-                card_body.appendChild(card_text)
-                card_body.appendChild(card_btn)
+                container.className = 'col-sm-6 mt-3 mb-3';
+                card.className = 'card';
+                card_body.className = 'card-body';
+                card_title.className = 'card-title';
+                card_text.className = 'card-text';
+                card_btn.className = 'btn btn-primary';
+                card_btn.href = `/dashboard/${carteira._id}`;
+                container.appendChild(card);
+                card.appendChild(card_body);
+                card_body.appendChild(card_title, card_text, card_btn);
+                card_body.appendChild(card_text);
+                card_body.appendChild(card_btn);
 
 
-                card_title.innerHTML = carteira.name
+                card_title.innerHTML = carteira.name;
                 card_btn.innerText = 'Acessar'
                 card_text.innerHTML = `Integrantes: ${integrantes_string}`
                 tela.appendChild(container)

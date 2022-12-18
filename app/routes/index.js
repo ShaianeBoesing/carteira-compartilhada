@@ -30,7 +30,7 @@ routes.get('/wallets/create', loggedIn, wallets.create);
 routes.get('/wallets/remove', loggedIn, wallets.remove);
 routes.get('/wallets/:id', loggedIn, wallets.show);
 routes.delete('/wallets/:id', loggedIn, wallets.destroy);
-routes.get('/dashboard', loggedIn, session.select);
+routes.get('/dashboard/:wallet_id', loggedIn, session.select);
 
 //Users Wallets
 routes.get('/users_wallets/users/w/:wallet_id', loggedIn, users_wallets.getUsers);
@@ -48,13 +48,13 @@ routes.get('/categories/:id', loggedIn, categories.show);
 routes.patch('/categories/:id', loggedIn, categories.update);
 routes.delete('/categories/:id', loggedIn, categories.destroy);
 
-//Category
-routes.get('/categories', loggedIn, categories.index)
-routes.post('/categories', loggedIn, categories.store)
-routes.get('/categories/create', loggedIn, categories.create);
-routes.get('/categories/:id', loggedIn, categories.show)
-routes.patch('/categories/:id', loggedIn, categories.update);
-routes.delete('/categories/:id', loggedIn, categories.destroy);
+// //Category
+// routes.get('/categories', loggedIn, categories.index)
+// routes.post('/categories', loggedIn, categories.store)
+// routes.get('/categories/create', loggedIn, categories.create);
+// routes.get('/categories/:id', loggedIn, categories.show)
+// routes.patch('/categories/:id', loggedIn, categories.update);
+// routes.delete('/categories/:id', loggedIn, categories.destroy);
 
 //Calculate 
 routes.get('/calculate/total/wallet', loggedIn, calcs.totalByWallet)
