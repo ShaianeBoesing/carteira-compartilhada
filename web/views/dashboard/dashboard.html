@@ -66,13 +66,15 @@
                     <div class="col-12 col-md-12 col-lg-12 col-xl-12">
                         <div class="card" style="border-radius: 15px;">
                             <div class="card-body p-6" id="corpo">
-                                <h2 id="nome-carteira" class="text-uppercase text-center mb-5">Minha Carteira</h2>
+                                <h2 id="nome-carteira" class="text-uppercase text-center mb-5"></h2>
                                 <form class="row h-100">
                                     <div class="col">
-                                        <input class='form-control' placeholder="Descrição" for="descricao">
+                                        <label class="form-label mt-3">Descrição</label>
+                                        <input id='descricao' class="form-control" placeholder="Descrição" type="text">
                                     </div>
                                     <div class="col">
-                                        <input class='form-control' placeholder="Valor" for="valor">
+                                        <label class="form-label mt-3">Valor</label>
+                                        <input id='valor' class="form-control" placeholder="Valor" type="text">
                                     </div>
                                     <div class="col">
                                         <label class="form-label mt-3" for="form3Example3cg">Categoria</label>
@@ -86,7 +88,7 @@
                                 <div class="row">
                                     <div class="col card card card_saida m-4 border border-primary" class="total">
                                         <span class='total-texto'>Total</span>
-                                        <h3 class="total_valor text-center">R$4.6000,00</h3>
+                                        <h3 id="total-carteira" class="total_valor text-center">R$4.6000,00</h3>
                                     </div>
                                     <div class="col card card card_saida m-4 border border-success" class="entrada">
                                         <span class='entrada-texto'>Entrada</span>
