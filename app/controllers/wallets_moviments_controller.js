@@ -9,6 +9,13 @@ exports.index = async function(req,res) {
     res.status(201).json({data: wmc});
 };
 
+exports.getMovements = async function(req,res) {
+    // let id = req.params.wallet_id;
+    let wallet = await Wallet.findOne({_id: req.params.wallet_id})
+    let wmc = await WalletMoviment.find({wallet_id : wallet});
+    res.status(201).json({data: wmc});
+};
+
 exports.show = async function(req, res) {
     let id = req.params.id;
     let wmc = await WalletMoviment.find({_id: id});

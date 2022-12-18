@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     categories();
     getUserByWallet();
     getWallet();
+    getMovements();
 });
 
 const categories = async () => {
@@ -47,7 +48,21 @@ const getWallet = async () => {
 };
 
 const getMovements = async () => {
+    let urlSplitada = document.URL.split('/');
+    urlSplitada = urlSplitada[urlSplitada.length - 1];
+   
+    const url = ` /wallets_moviments/all/w/${urlSplitada}`;
 
+    const fetchData = {
+        method: 'GET',
+        headers: new Headers({
+            'Content-Type': 'application/json; charset=UTF-8'
+        })
+    }
+
+    const requisicao = await fetch(url, fetchData);
+    const jason = await requisicao.json();
+    console.log(jason);
 };
 
 async function atualizar_dados() {

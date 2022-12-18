@@ -53,6 +53,7 @@ routes.get('/calculate/total/wallet', loggedIn, calcs.totalByWallet)
 routes.get('/calculate/total', loggedIn, calcs.total)
 
 //Wallet Moviment
+routes.get('/wallets_moviments/all/w/:wallet_id', loggedIn, wallets_moviments.getMovements);
 routes.get('/wallets_moviments', loggedIn, wallets_moviments.index);
 routes.post('/wallets_moviments/w/:wallet_id', loggedIn, wallets_moviments.store); //terei acesso ao valor no body ou no link?
 routes.get('/wallets_moviments/create', loggedIn, wallets_moviments.create);
