@@ -1,0 +1,13 @@
+
+main {
+  display: flex;
+  overflow: auto;
+}
+.container {
+  border: 1px solid red;
+  margin-top: 56px;
+}
+
+.table-responsive{
+  max-height:80vh;
+}

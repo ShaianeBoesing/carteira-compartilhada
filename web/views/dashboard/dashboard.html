@@ -1,1 +1,131 @@
-<h1> This is your main page </h1>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Carteira</title>
+    <script src="../js/bootstrap.bundle.js"></script>
+    <script src="../js/create_wallet.js"></script>
+    <script src="../js/users.js"></script>
+    <script src="../js/dashboard.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+    <link href ='../css/create_walllet.css' rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top bg-light ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Carteiras</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Carteiras
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/">Carteiras</a></li>
+                            <li><a class="dropdown-item" href="/wallets/create">Criar Carteira</a></li>
+                            <li><a class="dropdown-item" href="/wallets/remove">Remover Carteira</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Conta
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/users/me">Meus dados</a></li>
+                            <li><a class="dropdown-item" type="'button" onClick='logout()' href="#">Logout</a></li>
+                        </ul>
+
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Categoria
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/categories/create">Criar categoria</a></li>
+                            <li><a class="dropdown-item" href="/categories/alter">Alterar categoria</a></li>
+                            <li><a class="dropdown-item" href="/categories/remove">Remover categoria</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="vh-100 bg-image">
+        <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+            <div class="container-lg h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+                        <div class="card" style="border-radius: 15px;">
+                            <div class="card-body p-6" id="corpo">
+                                <h2 id="nome-carteira" class="text-uppercase text-center mb-5"></h2>
+                                <form class="row h-100">
+                                    <div class="col">
+                                        <label class="form-label mt-3">Descrição</label>
+                                        <input id='descricao' class="form-control" placeholder="Descrição" type="text">
+                                    </div>
+                                    <div class="col">
+                                        <label class="form-label mt-3">Valor</label>
+                                        <input id='valor' class="form-control" placeholder="Valor" type="text">
+                                    </div>
+                                    <div class="col">
+                                        <label class="form-label mt-3" for="form3Example3cg">Categoria</label>
+                                        <select id='categoria' class="form-select" aria-label="Default select example">
+                                        </select>
+                                    </div>
+                                    <div class="col-2 d-flex justify-content-center">
+                                        <button type="button" class="btn btn-primary" onclick="atualizar_dados()"> Enviar </button>
+                                    </div>
+                                </form>
+                                <div class="row">
+                                    <div class="col card card card_saida m-4 border border-primary" class="total">
+                                        <span class='total-texto'>Total</span>
+                                        <h3 id="total-carteira" class="total_valor text-center">R$4.6000,00</h3>
+                                    </div>
+                                    <div class="col card card card_saida m-4 border border-success" class="entrada">
+                                        <span class='entrada-texto'>Entrada</span>
+                                        <h3 class="entrada_valor text-center">R$4.6000,00</h3>
+                                    </div>
+                                    <div class="col card card_saida m-4 border border-danger">
+                                        <span class='saida-texto'>Saída</span>
+                                        <h3 class="saida_valor text-center" id="asd">R$4.6000,00</h3>
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div class="table table-responsive">
+                                        <table class="table rounded border">
+                                            <thead>
+                                                <tr>
+                                                    <th>Data</th>
+                                                    <th>Descrição</th>
+                                                    <th>Valor</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tabela" class="table-responsive ">
+                                                <tr>
+                                                    <td>11/12/2002</td>
+                                                    <td>Item comprado</td>
+                                                    <td>$XX,XX</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
