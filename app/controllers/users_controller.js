@@ -7,9 +7,13 @@ exports.index = async function(req, res) {
 };
 
 exports.show = async function(req, res) {
-    let user = __current_user
-    res.status(201).json({data: user});
+    res.sendFile(__basedir + '/web/views/users/show.html');
 };
+
+exports.get = async function(req, res) {
+    let user = __current_user;
+    res.status(201).json({data: user});
+}
 
 exports.create = function(req, res) {
     res.sendFile(__basedir + '/web/views/users/form.html');
@@ -41,8 +45,9 @@ exports.update = async function(req, res) {
         const id = req.params.id;
         const name = req.body.name;
         const email = req.body.email;
-        let user = await User.findOneAndUpdate({"_id": id}, {name: name, email: email}, {new: true});  //new é para retornar o usuário com seus valores atualizados  
+        let user = await User.findOneAndUpdate({"_id": id}, {name: name, email: email}, {new: true});//new é para retornar o usuário com seus valores atualizados
         if(user) {
+            global.__current_user = user;
             res.status(201).json({message: 'Usuário Atualizado com Sucesso', user: user});
         } else  {
             res.status(404).json({message: 'Usuário não encontrado'});
