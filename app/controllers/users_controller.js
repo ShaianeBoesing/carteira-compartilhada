@@ -11,7 +11,6 @@ exports.show = async function(req, res) {
 };
 
 exports.get = async function(req, res) {
-    console.log('eu aqui');
     let user = __current_user;
     res.status(201).json({data: user});
 }

@@ -40,6 +40,7 @@ exports.store = async function(req, res) {
 exports.destroy = async function(req, res) {
     const id = req.params.id;
     let wallet = await Wallet.findOneAndRemove({_id: id});
+    let userWallet = await UserWallet.findOneAndRemove({wallet: id});
     if (wallet) {
         res.status(204).json({message: 'Carteira deletada com sucesso!'});
     } else {
